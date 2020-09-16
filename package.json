@@ -1,0 +1,23 @@
+{
+  "name": "parking-api",
+  "version": "1.0.0",
+  "description": "parking API",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest --watch tests",
+    "start": "sls offline --stage dev start",
+    "deployDev": "sls deploy --stage dev",
+  },
+  "author": "Swapnil Palsapure",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-offline": "^3.16.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.309.0",
+    "bunyan": "^1.8.12",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "mongoose": "4.13.14"
+  }
+}

@@ -1,0 +1,43 @@
+service: parking-api
+plugins:
+  - serverless-offline
+custom:
+  serverless-offline:
+    port: 3001
+provider:
+  name: aws
+  stage: dev
+  environment:
+      DEPLOYMENT_STAGE: ${opt:stage, self:provider.stage}
+functions:
+  raiseParkingRequest:  
+    handler: handler/parking.raiseRequest
+    events:
+      - http: 
+          path: raise
+          method: POST
+          cors: true 
+  
+  getAvailableParking:
+    handler: handler/parking.getAvailableParkingLot
+    events:
+      - http: 
+          path: available
+          method: POST
+          cors: true   
+
+  getOccupiedParking:  
+    handler: handler/parking.getOccupiedParkingLot
+    events:
+      - http: 
+          path: occupied
+          method: POST
+          cors: true
+          
+  registeredUsers:  
+    handler: handler/parking.getRegisteredUsers
+    events:
+      - http: 
+          path: users
+          method: POST
+          cors: true
